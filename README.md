@@ -6,17 +6,36 @@ For running on production mode you can run `npm run docker:compose:prod`, but kn
 
 You also need to create your .env and .dockerignore files.
 
+---
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+Git clone:
 
 ```bash
-npm run dev
+git clone https://github.com/DaliGabriel/NextjsPostgresqlDockerCompose.git
 ```
+
+Access the folder:
+
+```bash
+cd NextjsPostgresqlDockerCompose/
+```
+
+Install node packages:
+
+```bash
+npm i
+```
+
+Install node packages:
+
+```bash
+npm run docker:compose:dev
+```
+
 ## Docker nextjs prisma init
 
 Init the migrations previously defined on Prisma/schema.prisma:
@@ -44,4 +63,5 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 # NextjsPostgresqlDockerCompose
+
 # NextjsPostgresqlDockerCompose
