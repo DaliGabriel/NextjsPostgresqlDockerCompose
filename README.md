@@ -41,19 +41,19 @@ npm run docker:compose:dev
 Init the migrations previously defined on Prisma/schema.prisma:
 
 ```bash
-npx prisma migrate dev --name init
+docker exec -it <ContainesId> npx prisma migrate dev --name init
 ```
 
 Run the seeders(optional):
 
 ```bash
-npx prisma db seed
+docker exec -it <ContainesId> npx prisma db seed
 ```
 
 Run prisma studio(optional):
 
 ```bash
-npx prisma studio
+docker exec -it <ContainesId> npx prisma studio
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import prisma from "@/lib/db";
+import prisma from "../lib/db";
+
 
 export default async function Home() {
 
