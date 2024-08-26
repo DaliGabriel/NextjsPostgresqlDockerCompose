@@ -1,22 +1,41 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Suspense } from "react";
 import prisma from "./lib/db";
+import { unstable_noStore as noStore } from "next/cache";
 
+async function getData() {
+  noStore();
+  try {
+    const data = await prisma.user.findMany();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return null;
+  }
+}
 
 export default async function Home() {
-
-  const data = await prisma.user.findMany();
-
-  console.log(data);
-
+  const data = await getData();
 
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get xxx  by &nbsp;
+          Get xxx by &nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
+        
+        {data ? (
+          <div>
+            {/* Render your data here */}
+            <p>User count: {data.length}</p>
+          </div>
+        ) : (
+          <p>Failed to load data</p>
+        )}
+
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
